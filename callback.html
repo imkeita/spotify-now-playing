@@ -3,18 +3,29 @@
 <head>
     <title>Spotify Auth Callback</title>
     <script>
-        // Extract token from URL hash and pass it to the main window
         window.onload = function() {
-            if (window.opener) {
-                window.opener.postMessage(window.location.hash, 'http://127.0.0.1:5500');
-                window.close();
-            } else {
-                window.location.href = 'main.html' + window.location.hash;
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                const params = new URLSearchParams(hash);
+                
+                if (params.get('access_token')) {
+                    if (window.opener) {
+                        window.opener.postMessage(
+                            window.location.hash, 
+                            'https://imkeita.github.io'
+                        );
+                    } else {
+                        window.location.href = 
+                            'https://imkeita.github.io/spotify-now-playing/' + 
+                            window.location.hash;
+                    }
+                }
             }
+            window.close();
         };
     </script>
 </head>
 <body>
-    Redirecting...
+    Redirecting... Please wait.
 </body>
 </html>
