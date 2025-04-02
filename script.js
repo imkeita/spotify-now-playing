@@ -1,7 +1,7 @@
 // Spotify API Configuration
 // Public-facing Client ID (safe to expose per Spotify API rules)
 const SPOTIFY_CLIENT_ID = 'f458f7ee609e467caa9e911027b6ec0f';
-const SPOTIFY_REDIRECT_URI = 'http://127.0.0.1:5500/callback.html';
+const SPOTIFY_REDIRECT_URI = 'https://imkeita.github.io/spotify-now-playing/callback.html';
 const SPOTIFY_SCOPES = [
     'user-read-currently-playing',
     'user-read-playback-state',
