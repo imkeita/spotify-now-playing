@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Auth Callback</title>
+    <script>
+        // Extract token from URL hash and pass it to the main window
+        window.onload = function() {
+            if (window.opener) {
+                window.opener.postMessage(window.location.hash, 'http://127.0.0.1:5500');
+                window.close();
+            } else {
+                window.location.href = 'main.html' + window.location.hash;
+            }
+        };
+    </script>
+</head>
+<body>
+    Redirecting...
+</body>
+</html>
